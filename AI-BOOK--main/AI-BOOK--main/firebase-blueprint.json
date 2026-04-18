@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile and usage limits",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "tokensUsed": { "type": "number" },
+        "dailyLimit": { "type": "number" },
+        "lastResetDate": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "MCQResult": {
+      "title": "MCQ Result",
+      "description": "Results of MCQ tests taken by the user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "subject": { "type": "string" },
+        "chapter": { "type": "string" },
+        "score": { "type": "number" },
+        "total": { "type": "number" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["userId", "subject", "chapter", "score", "total"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile and limits"
+    },
+    "/users/{userId}/mcqResults/{resultId}": {
+      "schema": "MCQResult",
+      "description": "User's MCQ test history"
+    }
+  }
+}

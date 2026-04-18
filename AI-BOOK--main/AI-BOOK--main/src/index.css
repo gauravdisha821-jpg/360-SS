@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-slate-900 bg-slate-50;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+.glass-panel {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+.chat-bubble-user {
+  @apply bg-brand-600 text-white rounded-2xl rounded-tr-none shadow-lg shadow-brand-200/50;
+}
+
+.chat-bubble-ai {
+  @apply bg-white text-slate-800 rounded-2xl rounded-tl-none border border-slate-100 shadow-sm;
+}
+
+.mcq-option {
+  @apply relative overflow-hidden p-4 rounded-xl border-2 border-slate-100 bg-white transition-all duration-200 hover:border-brand-300 hover:bg-brand-50/30 active:scale-[0.98];
+}
+
+.mcq-option-selected {
+  @apply border-brand-500 bg-brand-50 ring-2 ring-brand-500/20;
+}
